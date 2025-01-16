@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --outDir dist",
+    "start:dev": "tsx watch --clear-screen=false src/index.ts",
     "format": "prettier --ignore-unknown --wtire .",
     "lint": "eslint --fix .",
     "prepare": "husky"
@@ -21,6 +22,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.3.0",
     "prettier": "3.4.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
   }

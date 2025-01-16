@@ -1,0 +1,15 @@
+{
+  "name": "akromjon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --ignore-unknown --wtire ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prettier": "3.4.2"
+  }
+}

@@ -4,6 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "test": "vitest --run",
     "build": "tsc --outDir dist",
     "start:dev": "tsx watch --clear-screen=false --env-file=.env src/index.ts",
     "format": "prettier --ignore-unknown --wtire .",
@@ -24,7 +25,8 @@
     "prettier": "3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^3.0.1"
   },
   "dependencies": {
     "grammy": "^1.34.0"

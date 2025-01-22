@@ -5,7 +5,7 @@
     "test": "vitest --run",
     "build": "tsc --outDir dist",
     "start": "node dist/index.js",
-    "start:dev": "tsx watch --clear-screen=false --env-file=.env src/index.ts",
+    "dev": "tsx watch --clear-screen=false --env-file=.env src/index.ts",
     "format": "prettier --ignore-unknown --wtire .",
     "lint": "eslint --fix .",
     "prepare": "husky"

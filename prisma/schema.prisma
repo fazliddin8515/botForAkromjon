@@ -13,6 +13,6 @@ model User {
   first_name    String
   last_name     String?
   username      String? @unique
-  language_code String
-  is_adim       Boolean @default(false)
+  language_code String?
+  is_admin      Boolean @default(false)
 }

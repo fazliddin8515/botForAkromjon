@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id            Int     @id
+  id            BigInt  @id
   is_bot        Boolean
   first_name    String
   last_name     String?

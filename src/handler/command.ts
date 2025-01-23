@@ -1,9 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { CommandMiddleware, Context } from "grammy";
+import { CommandMiddleware } from "grammy";
+import { MyContext } from "../bot";
+import { yesNoKeyboard } from "../util/keyboard";
 
 const prisma = new PrismaClient();
 
-type CommandHandler = CommandMiddleware<Context>;
+type CommandHandler = CommandMiddleware<MyContext>;
 
 export type Command = {
   command: string;
@@ -12,7 +14,7 @@ export type Command = {
 };
 
 const startHandler: CommandHandler = async (ctx) => {
-  const from = ctx.from!;
+  const from = ctx.update.message!.from;
   let user = await prisma.user.findFirst({ where: { id: from.id } });
 
   if (!user) {
@@ -31,10 +33,34 @@ const startHandler: CommandHandler = async (ctx) => {
   await ctx.reply(`${user.first_name} is registered`);
 };
 
-const startCommand: Command = {
+const postHandler: CommandHandler = async (ctx) => {
+  const message = ctx.message!.text;
+  const post = message.slice(5);
+
+  if (!post) {
+    return await ctx.reply("Post matni mavjud emas.");
+  }
+
+  const session = await ctx.session;
+  session.post = post.trim();
+
+  await ctx.reply("Postni tasdiqlang.");
+  await ctx.reply(post, {
+    parse_mode: "MarkdownV2",
+    reply_markup: yesNoKeyboard
+  });
+};
+
+export const startCommand: Command = {
   command: "start",
   description: "start command",
   handler: startHandler
 };
 
-export const commands = [startCommand];
+export const postCommand: Command = {
+  command: "post",
+  description: "post command",
+  handler: postHandler
+};
+
+export const commands = [startCommand, postCommand];

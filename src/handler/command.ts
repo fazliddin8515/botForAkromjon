@@ -1,16 +1,17 @@
 import { PrismaClient } from "@prisma/client";
-import { CommandMiddleware } from "grammy";
+import { CommandContext } from "grammy";
 import { MyContext } from "../bot";
 import { yesNoKeyboard } from "../util/keyboard";
 
 const prisma = new PrismaClient();
 
-type CommandHandler = CommandMiddleware<MyContext>;
+type CommandHandler = (ctx: CommandContext<MyContext>) => Promise<void>;
 
 export type Command = {
   command: string;
   description: string;
   handler: CommandHandler;
+  authRequired: boolean;
 };
 
 const startHandler: CommandHandler = async (ctx) => {
@@ -38,7 +39,8 @@ const postHandler: CommandHandler = async (ctx) => {
   const post = message.slice(5);
 
   if (!post) {
-    return await ctx.reply("Post matni mavjud emas.");
+    await ctx.reply("Post matni mavjud emas.");
+    return;
   }
 
   const session = await ctx.session;
@@ -54,13 +56,15 @@ const postHandler: CommandHandler = async (ctx) => {
 export const startCommand: Command = {
   command: "start",
   description: "start command",
-  handler: startHandler
+  handler: startHandler,
+  authRequired: false
 };
 
 export const postCommand: Command = {
   command: "post",
   description: "post command",
-  handler: postHandler
+  handler: postHandler,
+  authRequired: true
 };
 
 export const commands = [startCommand, postCommand];

@@ -18,15 +18,6 @@ export const regCommands = (bot: Bot<MyContext>, commands: Command[]) => {
   );
 };
 
-// export const regConversations = (
-//   bot: Bot<MyContext>,
-//   conversations: MyConversation[]
-// ) => {
-//   conversations.forEach((conversation) =>
-//     bot.use(createConversation(conversation.builder, conversation.name))
-//   );
-// };
-
 export const regCallbakQueries = (
   bot: Bot<MyContext>,
   callbackQueries: MyCallbackQuery[]

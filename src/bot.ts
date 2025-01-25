@@ -13,8 +13,6 @@ export type MyContext = Context & LazySessionFlavor<SessionData>;
 export const bot = new Bot<MyContext>(BOT_TOKEN);
 
 bot.use(lazySession({ initial: (): SessionData => ({}) }));
-// bot.use(conversations());
 
-// regConversations(bot, convs);
 regCallbakQueries(bot, CallbackQueries);
 regCommands(bot, commands);

@@ -1,8 +1,8 @@
 import { Bot } from "grammy";
-import { MyContext } from "../bot";
-import { MyCallbackQuery } from "../handler/callbackQueries";
-import { Command } from "../handler/command";
-import { isAuthenticated } from "./auth";
+import { MyContext } from "../bot.js";
+import { MyCallbackQuery } from "../handler/callbackQueries.js";
+import { Command } from "../handler/command.js";
+import { isAuthenticated } from "./auth.js";
 
 export const regCommands = (bot: Bot<MyContext>, commands: Command[]) => {
   commands.forEach((command) =>

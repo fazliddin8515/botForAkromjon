@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { CallbackQueryMiddleware } from "grammy";
-import { bot, MyContext } from "../bot";
+import { bot, MyContext } from "../bot.js";
 
 const prisma = new PrismaClient();
 

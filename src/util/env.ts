@@ -1,4 +1,4 @@
-import { GetEnvError } from "./error";
+import { GetEnvError } from "./error.js";
 
 export const getEnv = (name: string) => {
   const env = process.env[name];

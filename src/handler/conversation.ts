@@ -1,5 +1,5 @@
 import { ConversationFn } from "@grammyjs/conversations";
-import { MyContext, SessionData } from "../bot";
+import { MyContext, SessionData } from "../bot.js";
 
 type ConversationBuilder = ConversationFn<MyContext>;
 

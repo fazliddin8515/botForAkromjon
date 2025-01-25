@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GetEnvError } from "./error";
+import { GetEnvError } from "./error.js";
 
 describe("GetEnvError", () => {
   it("should return an Error instance", () => {

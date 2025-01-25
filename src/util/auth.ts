@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { MyContext } from "../bot";
+import { MyContext } from "../bot.js";
 
 const prisma = new PrismaClient();
 

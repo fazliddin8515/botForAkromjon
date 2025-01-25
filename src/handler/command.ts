@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { CommandContext } from "grammy";
-import { MyContext } from "../bot";
-import { yesNoKeyboard } from "../util/keyboard";
+import { MyContext } from "../bot.js";
+import { yesNoKeyboard } from "../util/keyboard.js";
 
 const prisma = new PrismaClient();
 

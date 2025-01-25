@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { getEnv } from "./env";
-import { GetEnvError } from "./error";
+import { getEnv } from "./env.js";
+import { GetEnvError } from "./error.js";
 
 vi.stubGlobal("process", {
   env: {
